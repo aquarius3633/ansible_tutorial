@@ -1,0 +1,34 @@
+---
+
+- hosts: Rocky_host
+  become: true
+  vars_files:
+    - rocky_sudo_pass
+  tasks:
+  - name: install httpd package
+    yum:
+      name: httpd
+      state: latest
+      update_cache: true
+
+- hosts: Ubuntu_host
+  become: true
+  vars_files:
+    - rocky_sudo_pass
+  tasks:
+  - name: install apache package
+    apt: 
+     name: apache2
+     state: latest
+     update_cache: true
+
+- hosts: Kali_host
+  become: true
+  vars_files: 
+    - sudo_pass
+  tasks:
+  - name: install apache2 package
+    apt:
+      name: apache2
+      state: latest
+      update_cache: true

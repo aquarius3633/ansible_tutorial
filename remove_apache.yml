@@ -1,0 +1,34 @@
+---
+
+- hosts: Rocky_host
+  become: true
+  vars_files:
+    - rocky_sudo_pass
+  tasks:
+  - name: uninstall httpd package
+    yum:
+      name: httpd
+      state: absent
+      update_cache: true
+
+- hosts: Ubuntu_host
+  become: true
+  vars_files:
+    - rocky_sudo_pass
+  tasks:
+  - name: uninstall apache package
+    apt: 
+     name: apache2
+     state: absent
+     update_cache: true
+
+- hosts: Kali_host
+  become: true
+  vars_files: 
+    - sudo_pass
+  tasks:
+  - name: uninstall apache2 package
+    apt:
+      name: apache2
+      state: absent
+      update_cache: true

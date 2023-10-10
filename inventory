@@ -1,3 +1,8 @@
+[Rocky_host]
 192.168.64.4
+
+[Ubuntu_host]
 192.168.64.7
+
+[Kali_host]
 kali@192.168.64.8
